@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import './index.css';
+import Movie from "./components/Movie";
 
 const API_KEY = 'api_key=aa090ed40895efe0d080b831bf9420ae';
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -48,17 +49,10 @@ class App extends React.Component {
 
                     <main id="main">
                         {items.results.map(item => (
-                            <div class="movie"> 
-                                <img src={"https://image.tmdb.org/t/p/original/" + item.poster_path} alt="Image" />
-                                <div class="movie-info">
-                                    <h3>{item.title}</h3>
-                                    <span class="green">{item.vote_average}</span>
-                                </div>
-
-                                <div class="overview">
-                                    {item.overview}
-                                </div>
-                            </div>
+                            <Movie
+                                key={item.id}
+                                item={item}
+                            />
                         ))}
                     </main>
                 </div>
