@@ -13,9 +13,8 @@ const Coronavirus = ({item}) => (
             <p>Total Hospitalized : {item.hospitalizedCumulative}</p>
             <p>Hospitalized Increase : {item.hospitalizedIncrease}</p>
         </div>
-            
+        
     </div>
-
-        );
+    );
 
 export default Coronavirus;
