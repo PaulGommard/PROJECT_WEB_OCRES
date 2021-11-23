@@ -20,6 +20,7 @@ header{
     display:flex;
     justify-content: flex-end;
     background-color: var(--secondary-color);
+    color: white;
 }
 
 .first_floor{
@@ -46,20 +47,21 @@ header{
 }
 
 .graph{
-    height: 500px;
+    height: 600px;
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
 
 .dog{
-    height: 400px;
+    height: 600px;
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
 
 .dog img{
-    width: 70%;
-	height: 70%;
+    padding-top: 50%;
+    width: 90%;
+	height: 90%;
 }
 
 .weather{
@@ -71,17 +73,29 @@ header{
 .weather .description{
     color: white;
     text-align: center;
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .joke{
-    height: 200px;
+    height: 400px;
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
 
-.music{
-    height: 600px;
+.joke .description{
+    color: white;
+    text-align: center;
+    padding-top: 130px;
+}
+
+.coronavirus{
+    height: 400px;
     background-color: var(--secondary-color);
     border-radius: 10px;
+}
+
+.coronavirus .description{
+    color: white;
+    text-align: center;
+    padding-top: 40px;
 }

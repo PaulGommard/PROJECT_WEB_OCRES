@@ -19,6 +19,6 @@ const Profile = ({item}) => (
             <p>Street : {item.location.street.number} {item.location.street.name}</p>
         </div>
     </div>
-        );
+    );
 
 export default Profile;

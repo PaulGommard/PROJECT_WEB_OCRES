@@ -15,7 +15,8 @@ const Weather = ({item}) => (
             <p>Pressure : {item.main.pressure}</p>
             <p>Humidity : {item.main.humidity}</p>
         </div> 
+        
     </div>
-        );
+    );
 
 export default Weather;

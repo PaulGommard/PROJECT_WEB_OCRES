@@ -7,8 +7,7 @@ const Dog = ({item}) => (
             <h2>Your Dog</h2>
             <img src={item.message} alt="Image" />
         </div>
-
     </div>
-        );
+    );
 
 export default Dog;

@@ -6,24 +6,15 @@ import Profile from "./components/Profile";
 import Dog from "./components/Dog";
 import Joke from "./components/Joke";
 import Weather from "./components/Weather";
-
-const API_KEY = 'api_key=aa090ed40895efe0d080b831bf9420ae';
-const BASE_URL = 'https://api.themoviedb.org/3';
-const API_URL = BASE_URL + '/discover/movie?sort_by=popularity.desc&'+API_KEY;
-const searchURL = BASE_URL + '/search/movie?'+API_KEY;
-
-const form = document.getElementById('form');
-const search = document.getElementById('search');
-
-const API_RANDOM_USER = 'https://randomuser.me/api/';
-const API_RANDOM_DOG = 'https://dog.ceo/api/breeds/image/random'
+import Coronavirus from "./components/Coronavirus";
+import Graphique from "./components/Graphique";
 
 var urls = [
     'https://randomuser.me/api/',
     'https://dog.ceo/api/breeds/image/random',
     'https://geek-jokes.sameerkumar.website/api',
-    'https://api.openweathermap.org/data/2.5/weather?q=paris&units=metric&appid=4081444b7b90198136fefe6ed4ccf35b'
-    // 'https://api.spoonacular.com/recipes/random?apiKey=2ae811ba80a24c319622d0fa5d4d0315'
+    'https://api.openweathermap.org/data/2.5/weather?q=paris&units=metric&appid=4081444b7b90198136fefe6ed4ccf35b',
+    'https://api.covidtracking.com/v1/us/current.json'
 ]
 
 function checkStatus(response) {
@@ -46,13 +37,13 @@ class App extends React.Component {
             dog: [],
             joke: [],
             weather: [],
+            coronavirus: [],
+            graphique: [],
             isLoaded: false,
         }
     }
 
     componentDidMount() {
-       
-
         Promise.all(urls.map(url =>
             fetch(url)
                 .then(checkStatus)  // check the response of our APIs
@@ -65,12 +56,14 @@ class App extends React.Component {
                 const data_dog = data[1];
                 const data_joke = data[2];
                 const data_weather = data[3];
+                const data_coronavirus = data[4];
                 this.setState({
                             isLoaded: true,
                             users: data_user,
                             dog: data_dog,
                             joke: data_joke,  
-                            weather: data_weather 
+                            weather: data_weather, 
+                            coronavirus: data_coronavirus
                         })
                         console.log(this.state);
             })
@@ -78,7 +71,7 @@ class App extends React.Component {
 
     render() {
 
-        var { isLoaded, users, dog, joke, weather } = this.state;
+        var { isLoaded, users, dog, joke, weather, coronavirus, graphique } = this.state;
 
         if (!isLoaded) {
             return <div>Loading...</div>
@@ -89,23 +82,15 @@ class App extends React.Component {
                 <div className="App">  
                     <header>
                         <form id="form">
-                            <input type="text" placeholder="search" id="search" class="search" />
+                            <h1>The most crappy site in the world</h1>
                         </form>
                     </header>  
-
-                    {/* <main id="main">
-                        {items.results.map(item => (
-                            <Movie
-                                key={item.id}
-                                item={item}
-                            />
-                        ))}
-                    </main> */}
 
                 <div class="widgets">
                         <div class="container_fluid">
                             <div class="first_floor">
                                 <div class="row">
+
                                     <div class="col-3">
                                     {users.results.map(item => (
                                         <Profile
@@ -116,12 +101,10 @@ class App extends React.Component {
                                     </div>
                     
                                     <div class="col-7">
-                                        <div class="graph">
-                                            <div class="title">
-                                                <h2>Graphique</h2>
-                                            </div>
+                                        <Graphique
+                                            item={graphique}
+                                        />
                     
-                                        </div>
                                     </div>
                     
                                     <div class="col">
@@ -129,12 +112,12 @@ class App extends React.Component {
                                             item={dog}
                                         />
                                     </div>
-                            </div>
-                            
+                                </div>
                                 
                             </div>
 
                             <div class="row">
+
                                 <div class="col">
                                         <Weather
                                             item={weather}
@@ -142,12 +125,11 @@ class App extends React.Component {
                                 </div>
 
                                 <div class="col">
-                                    <div class="music">
-                                        <div class="title">
-                                            <h2>Your Favorite Music</h2>
-                                        </div>
-
-                                    </div>
+                                    {coronavirus.map(item => (
+                                        <Coronavirus
+                                            item={item}
+                                        />
+                                    ))}
                                 </div>
 
                                 <div class="col">
@@ -156,10 +138,8 @@ class App extends React.Component {
                                 />
                                 </div>
                                 
-                            </div>
-                            
-                        </div>
-                        
+                            </div>  
+                        </div> 
                     </div>
                 </div>
             );
@@ -168,12 +148,6 @@ class App extends React.Component {
     }
     
 };
-
-// form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-
-//     const searchTerm = search.value;
-// })
 
 const rootElement = document.getElementById("root");
 ReactDOM.render(<App />, rootElement);
