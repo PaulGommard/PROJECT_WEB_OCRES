@@ -1,9 +1,11 @@
 import React from "react";
 import '../index.css';
 
+const IMG_URL = 'https://image.tmdb.org/t/p/original/';
+
 const Movie = ({item}) => (
         <div class="movie"> 
-            <img src={"https://image.tmdb.org/t/p/original/" + item.poster_path} alt="Image" />
+            <img src={IMG_URL + item.poster_path} alt="Image" />
             <div class="movie-info">
                 <h3>{item.title}</h3>
                 <span class="green">{item.vote_average}</span>
