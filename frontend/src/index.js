@@ -29,6 +29,29 @@ function parseJSON(response) {
 return response.json();
 }
 
+const data = [
+    {
+        name: 'January',
+        Iphone: 4000
+    },
+    {
+        name: "March",
+        Iphone: 1000,
+    },
+    {
+        name: "May",
+        Iphone: 4000,
+    },
+    {
+        name: "July",
+        Iphone: 800,
+    },
+    {
+        name: "October",
+        Iphone: 1500,
+    },
+    ];
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -102,9 +125,8 @@ class App extends React.Component {
                     
                                     <div class="col-7">
                                         <Graphique
-                                            item={graphique}
+                                            item={weather}
                                         />
-                    
                                     </div>
                     
                                     <div class="col">
