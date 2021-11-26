@@ -23,12 +23,8 @@ header{
     color: white;
 }
 
-.first_floor{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
 .profile{
+    margin-top: 20px;
     height: 600px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -47,12 +43,14 @@ header{
 }
 
 .graph{
+    margin-top: 20px;
     height: 600px;
     background-color: var(--secondary-color);
     border-radius: 10px;
 }
 
 .dog{
+    margin-top: 20px;
     height: 600px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -65,6 +63,7 @@ header{
 }
 
 .weather{
+    margin-top: 20px;
     height: 400px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -77,6 +76,7 @@ header{
 }
 
 .joke{
+    margin-top: 20px;
     height: 400px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -89,6 +89,7 @@ header{
 }
 
 .coronavirus{
+    margin-top: 20px;
     height: 400px;
     background-color: var(--secondary-color);
     border-radius: 10px;
@@ -99,3 +100,19 @@ header{
     text-align: center;
     padding-top: 40px;
 }
+
+.bn60 {
+    background-color: rgb(136, 132, 216);
+    color: #ffffff;
+    font-size: 1.3em;
+    font-weight: 600;
+    position: relative;
+    outline: none;
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 55px;
+    width: 160px;
+  }

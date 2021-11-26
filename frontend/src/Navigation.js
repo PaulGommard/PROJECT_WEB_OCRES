@@ -1,18 +1,18 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import './index.css';
 
-function Navigation(){
+function Navigation() {
 
-    return(
+    return (
         <header>
-            <form id="form">
-                <Link to="/">
-                    <h1>Widgets</h1>
-                </Link>
-                <h1>The most crappy site in the world</h1>
-            </form>
-        </header> 
+            <a className="bn60" href="/widgets">
+                Widgets
+            </a>
+            <a className="bn60" href="/dashboard">
+                Dashboard
+            </a>
+        </header>
     )
 
 }

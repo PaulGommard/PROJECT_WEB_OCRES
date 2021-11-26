@@ -78,68 +78,52 @@ class Widgets extends React.Component {
         }
 
         else {
-            return (
-                <div className="App">  
-                    <header>
-                        <form id="form">
-                            <h1>The most crappy site in the world</h1>
-                        </form>
-                    </header>  
-
+            return (   
                 <div class="widgets">
-                        <div class="container_fluid">
-                            <div class="first_floor">
-                                <div class="row">
-
-                                    <div class="col-3">
-                                    {users.results.map(item => (
-                                        <Profile
-                                            key={item.id}
-                                            item={item}
-                                        />
-                                    ))}
-                                    </div>
-                    
-                                    <div class="col-7">
-                                        <Graphique
-                                            item={weather}
-                                        />
-                                    </div>
-                    
-                                    <div class="col">
-                                        <Dog
-                                            item={dog}
-                                        />
-                                    </div>
-                                </div>
-                                
+                    <div class="container_fluid">
+                        <div class="row">
+                            <div class="col-3">
+                                {users.results.map(item => (
+                                    <Profile
+                                        key={item.id}
+                                        item={item}
+                                    />
+                                ))}
+                            </div>
+            
+                            <div class="col-7">
+                                <Graphique
+                                    item={weather}
+                                />
+                            </div>
+            
+                            <div class="col-2">
+                                <Dog
+                                    item={dog}
+                                />
                             </div>
 
-                            <div class="row">
+                            <div class="col">
+                                <Weather
+                                    item={weather}
+                                />
+                            </div>
 
-                                <div class="col">
-                                        <Weather
-                                            item={weather}
-                                        />
-                                </div>
+                            <div class="col">
+                                {coronavirus.map(item => (
+                                    <Coronavirus
+                                        item={item}
+                                    />
+                                ))}
+                            </div>
 
-                                <div class="col">
-                                    {coronavirus.map(item => (
-                                        <Coronavirus
-                                            item={item}
-                                        />
-                                    ))}
-                                </div>
-
-                                <div class="col">
+                            <div class="col">
                                 <Joke
                                     item={joke}
                                 />
-                                </div>
-                                
-                            </div>  
-                        </div> 
-                    </div>
+                            </div>     
+                        </div>      
+                    </div> 
                 </div>
             );
         }
