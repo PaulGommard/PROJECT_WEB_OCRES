@@ -82,7 +82,7 @@ class Widgets extends React.Component {
                 <div class="widgets">
                     <div class="container_fluid">
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
                                 {users.results.map(item => (
                                     <Profile
                                         key={item.id}
@@ -91,25 +91,25 @@ class Widgets extends React.Component {
                                 ))}
                             </div>
             
-                            <div class="col-7">
+                            <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-7">
                                 <Graphique
                                     item={weather}
                                 />
                             </div>
             
-                            <div class="col-2">
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-2 col-xl-2">
                                 <Dog
                                     item={dog}
                                 />
                             </div>
 
-                            <div class="col">
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4">
                                 <Weather
                                     item={weather}
                                 />
                             </div>
 
-                            <div class="col">
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4">
                                 {coronavirus.map(item => (
                                     <Coronavirus
                                         item={item}
@@ -117,7 +117,7 @@ class Widgets extends React.Component {
                                 ))}
                             </div>
 
-                            <div class="col">
+                            <div class="col-12 col-sm-6 col-md-3 col-lg-4 col-xl-4">
                                 <Joke
                                     item={joke}
                                 />

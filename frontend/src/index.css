@@ -57,9 +57,12 @@ header{
 }
 
 .dog img{
-    padding-top: 50%;
+    padding-top: 30%;
     width: 90%;
 	height: 90%;
+
+    max-width: 300px;
+    max-height: 500px;
 }
 
 .weather{
@@ -72,7 +75,7 @@ header{
 .weather .description{
     color: white;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 5%;
 }
 
 .joke{
@@ -85,7 +88,7 @@ header{
 .joke .description{
     color: white;
     text-align: center;
-    padding-top: 130px;
+    padding-top: 10%;
 }
 
 .coronavirus{
@@ -98,7 +101,7 @@ header{
 .coronavirus .description{
     color: white;
     text-align: center;
-    padding-top: 40px;
+    padding-top: 5%;
 }
 
 .bn60 {
