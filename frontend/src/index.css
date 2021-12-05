@@ -119,3 +119,31 @@ header{
     height: 55px;
     width: 160px;
   }
+
+.admin{
+    margin-top: 20px;
+    height: 500px;
+    background-color: var(--secondary-color);
+    border-radius: 10px;
+}
+
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+
+

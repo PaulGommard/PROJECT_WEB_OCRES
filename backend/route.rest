@@ -1,0 +1,22 @@
+GET http://localhost:3000/profiles
+
+###
+
+Get https://randomuser.me/api/
+
+###
+
+POST http://localhost:3000/profiles
+Content-Type: application/json
+
+{
+    "firstName": "test",
+    "lastName": "test",
+    "age": "test",
+    "country": "test",
+    "city": "test"
+}
+
+###
+
+DELETE http://localhost:3000/profiles/61acef23553646c6e04c14e6

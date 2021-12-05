@@ -9,12 +9,17 @@ import Weather from "../components/Weather";
 import Coronavirus from "../components/Coronavirus";
 import Graphique from "../components/Graphique";
 
+import ApiProfile from "./ApiProfile";
+
+const apiProfile = new ApiProfile();
+
 var urls = [
     'https://randomuser.me/api/',
     'https://dog.ceo/api/breeds/image/random',
     'https://geek-jokes.sameerkumar.website/api',
-    'https://api.openweathermap.org/data/2.5/weather?q=paris&units=metric&appid=4081444b7b90198136fefe6ed4ccf35b',
-    'https://api.covidtracking.com/v1/us/current.json'
+    'https://api.openweathermap.org/data/2.5/weather?q=paris&units=metric&appid=fb8a28ca1a7d37be07c561ef6b1736a8',
+    'https://api.covidtracking.com/v1/us/current.json',
+    'http://localhost:3000/profiles'
 ]
 
 function checkStatus(response) {
@@ -57,16 +62,41 @@ class Widgets extends React.Component {
                 const data_joke = data[2];
                 const data_weather = data[3];
                 const data_coronavirus = data[4];
+                const data_graphique = data[5];
                 this.setState({
                             isLoaded: true,
                             users: data_user,
                             dog: data_dog,
                             joke: data_joke,  
                             weather: data_weather, 
-                            coronavirus: data_coronavirus
+                            coronavirus: data_coronavirus,
+                            graphique: data_graphique
                         })
                         console.log(this.state);
+                        console.log(this.state.users.results[0].location.city);
+            
+                        const profile = {
+                        firstName: this.state.users.results[0].name.first,
+                        lastName: this.state.users.results[0].name.last,
+                        age: this.state.users.results[0].registered.age,
+                        country: this.state.users.results[0].location.country,
+                        city: this.state.users.results[0].location.city
+            };
+
+            apiProfile
+                .createProfile(profile)
+                .then(res => {
+                    const data = res.data;
+                    if (data !== '') {
+                        this.setState({ successValue: "Completed" })
+                        setTimeout(function () {
+                        }, 2000);
+                    } else {
+                        alert("Can't add new data on database");
+                    }
+                })
             })
+    
     }
 
     render() {
