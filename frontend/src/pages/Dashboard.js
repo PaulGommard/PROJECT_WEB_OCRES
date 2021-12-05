@@ -186,7 +186,7 @@ class Dashboard extends React.Component {
                         <div className="delete">
                             <div className="row input-section">
                                 <input type="text" className="col-2" value={this.state.deleteValue} placeholder="Last name" required onChange={(e) => this.handleChange("delete", e)} />
-                                <button type="button" className="col-auto" onClick={() => this.DeleteProfile()}>Supprimer</button>
+                                <button type="button" className="col-auto" onClick={() => this.DeleteProfile()}>Delete</button>
                             </div>
                         </div>
 
@@ -213,8 +213,6 @@ class Dashboard extends React.Component {
                             </div>
                             <div className="row justify-content-end success">{this.state.successUpdate}</div>
                         </div>
-
-                        
 
                     </div>
                      
