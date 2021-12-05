@@ -99,7 +99,7 @@ class Dashboard extends React.Component {
             .then(res => {
                 const data = res.data;
                 if (data !== '') {
-                    this.setState({ successValue: "Completed" })
+                    this.setState({ successUpdate: "Completed" })
                     setTimeout(function () {
                         window.location.reload(false);
                     }, 2000);
@@ -183,29 +183,38 @@ class Dashboard extends React.Component {
                             </table>
                         </div>
                         
-                        <div className="row input-section">
-                            <input type="text" className="col-2" value={this.state.deleteValue} placeholder="Last name" required onChange={(e) => this.handleChange("delete", e)} />
-                            <button type="button" className="col-auto" onClick={() => this.DeleteProfile()}>Supprimer</button>
+                        <div className="delete">
+                            <div className="row input-section">
+                                <input type="text" className="col-2" value={this.state.deleteValue} placeholder="Last name" required onChange={(e) => this.handleChange("delete", e)} />
+                                <button type="button" className="col-auto" onClick={() => this.DeleteProfile()}>Supprimer</button>
+                            </div>
                         </div>
-                        <div className="row input-section">
-                            <input type="text" className="col-2" value={this.state.firstName} placeholder="firstName" required onChange={(e) => this.handleChange("firstName", e)} />
-                            <input type="text" className="col-2" value={this.state.lastName} placeholder="lastName" required onChange={(e) => this.handleChange("lastName", e)} />
-                            <input type="text" className="col-2" value={this.state.age} placeholder="age" required onChange={(e) => this.handleChange("age", e)} />
-                            <input type="text" className="col-2" value={this.state.country} placeholder="contry" required onChange={(e) => this.handleChange("country", e)} />
-                            <input type="text" className="col-2" value={this.state.city} placeholder="city" required onChange={(e) => this.handleChange("city", e)} />
-                            <button type="button" className="col-auto" onClick={() => this.CreateProfile()}>Add</button>
-                        </div>
-                        <div className="row justify-content-end success">{this.state.successValue}</div>
 
-                        <div className="row input-section">
-                            <input type="text" className="col-2" value={this.state.updateFirstName} placeholder="updateFirstName" required onChange={(e) => this.handleChange("updateFirstName", e)} />
-                            <input type="text" className="col-2" value={this.state.updateLastName} placeholder="updateLastName" required onChange={(e) => this.handleChange("updateLastName", e)} />
-                            <input type="text" className="col-2" value={this.state.updateAge} placeholder="updateAge" required onChange={(e) => this.handleChange("updateAge", e)} />
-                            <input type="text" className="col-2" value={this.state.updateCountry} placeholder="updateCountry" required onChange={(e) => this.handleChange("updateCountry", e)} />
-                            <input type="text" className="col-2" value={this.state.updateCity} placeholder="updateCity" required onChange={(e) => this.handleChange("updateCity", e)} />
-                            <button type="button" className="col-auto" onClick={() => this.UpdateProfile()}>Update</button>
+                        <div className="create">
+                            <div className="row input-section">
+                                <input type="text" className="col-2" value={this.state.firstName} placeholder="firstName" required onChange={(e) => this.handleChange("firstName", e)} />
+                                <input type="text" className="col-2" value={this.state.lastName} placeholder="lastName" required onChange={(e) => this.handleChange("lastName", e)} />
+                                <input type="text" className="col-2" value={this.state.age} placeholder="age" required onChange={(e) => this.handleChange("age", e)} />
+                                <input type="text" className="col-2" value={this.state.country} placeholder="contry" required onChange={(e) => this.handleChange("country", e)} />
+                                <input type="text" className="col-2" value={this.state.city} placeholder="city" required onChange={(e) => this.handleChange("city", e)} />
+                                <button type="button" className="col-auto" onClick={() => this.CreateProfile()}>Add</button>
+                            </div>
+                            <div className="row justify-content-end success">{this.state.successValue}</div>
                         </div>
-                        <div className="row justify-content-end success">{this.state.successUpdate}</div>
+                        
+                        <div className="update">
+                            <div className="row input-section">
+                                <input type="text" className="col-2" value={this.state.updateFirstName} placeholder="updateFirstName" required onChange={(e) => this.handleChange("updateFirstName", e)} />
+                                <input type="text" className="col-2" value={this.state.updateLastName} placeholder="updateLastName" required onChange={(e) => this.handleChange("updateLastName", e)} />
+                                <input type="text" className="col-2" value={this.state.updateAge} placeholder="updateAge" required onChange={(e) => this.handleChange("updateAge", e)} />
+                                <input type="text" className="col-2" value={this.state.updateCountry} placeholder="updateCountry" required onChange={(e) => this.handleChange("updateCountry", e)} />
+                                <input type="text" className="col-2" value={this.state.updateCity} placeholder="updateCity" required onChange={(e) => this.handleChange("updateCity", e)} />
+                                <button type="button" className="col-auto" onClick={() => this.UpdateProfile()}>Update</button>
+                            </div>
+                            <div className="row justify-content-end success">{this.state.successUpdate}</div>
+                        </div>
+
+                        
 
                     </div>
                      

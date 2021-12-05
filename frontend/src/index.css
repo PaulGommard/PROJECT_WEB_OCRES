@@ -147,6 +147,21 @@ td, th {
   padding: 8px;
 }
 
+.delete {
+    margin-left: 35%;
+    width: 1500px;
+    padding-bottom: 20px;
+}
+
+.create {
+    margin-left: 10%;
+    padding-bottom: 20px;
+}
+
+.update {
+    margin-left: 10%;
+    padding-bottom: 20px;
+}
 
 
 

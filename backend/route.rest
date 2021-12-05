@@ -19,4 +19,4 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/profiles/61acef23553646c6e04c14e6
+DELETE http://localhost:3000/profiles/Price

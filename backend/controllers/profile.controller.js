@@ -39,7 +39,7 @@ function saveOne(req, res) {
         .then((result) => {
             res
                 .status(201)
-                .json({ message:  `user ${result.id} created`, content: result })
+                .json({ message:  `profile ${result.id} created`, content: result })
         })
         .catch((err) => {
             if(err.errors && Object.keys(err.errors).length > 0 && err.name === 'ValidationError') {
@@ -74,7 +74,7 @@ function updateProfile(req, res) {
             if (result) {
                 res.json({ message: `${result.modifiedCount} updated` })
             } else {
-                res.status(404).json({ message: `Location not found` })
+                res.status(404).json({ message: `Profile not found` })
             }
         })
         .catch((err) => {
