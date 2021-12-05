@@ -17,6 +17,6 @@ export default class ApiProfile {
 
     updateProfile(profile) {
         return axios
-        .put(`http://localhost:3000/profiles/${profile.id}`, profile, {crossdomain: true})
+        .put(`http://localhost:3000/profiles/${profile.lastName}`, profile, {crossdomain: true})
     }
 }

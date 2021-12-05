@@ -160,6 +160,7 @@ class Dashboard extends React.Component {
             return (   
                 <div class="dashboard">
                     <div className="container-fluid">
+                        <div className='table_profiles'>
                         <table>
                             <tr>
                                 <th>FirstName</th>
@@ -180,6 +181,8 @@ class Dashboard extends React.Component {
                                 </tr>
                                 ))}
                         </table>
+                        </div>
+                        
                         <div className="row input-section">
                             <input type="text" className="col-2" value={this.state.deleteValue} placeholder="Last name" required onChange={(e) => this.handleChange("delete", e)} />
                             <button type="button" className="col-auto" onClick={() => this.DeleteProfile()}>Supprimer</button>

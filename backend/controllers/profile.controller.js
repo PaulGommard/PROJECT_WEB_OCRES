@@ -50,26 +50,26 @@ function saveOne(req, res) {
         })
 }
 
-function deleteByLastName(req, res) {
+async function deleteByLastName(req, res) {
+    console.log("test");
     const nameParam = req.params.name;
 
-    return Profile.deleteOne({ name: nameParam })
-        .then((result) => {
-            if(result) {
-                res.json({ message: `${result.deletedCount} deleted` })
-            } else {
-                res.status(404).json({ message: `Profile not found`})
-            }
-        })
-        .catch((err) => {
-            res.status(500).json(err)
-        })
+    try {
+        const result = await Profile.deleteOne({ lastName: nameParam });
+        if (result) {
+            res.json({ message: `${result.deletedCount} deleted` });
+        } else {
+            res.status(404).json({ message: `Profile not found` });
+        }
+    } catch (err) {
+        res.status(500).json(err);
+    }
 }
 
 function updateProfile(req, res) {
     const nameParam = req.params.name;
 
-    return Location.updateOne({ name: nameParam }, req.body)
+    return Profile.updateOne({ lastName: nameParam }, req.body)
         .then((result) => {
             if (result) {
                 res.json({ message: `${result.modifiedCount} updated` })

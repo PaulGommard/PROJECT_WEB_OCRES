@@ -127,7 +127,12 @@ header{
     border-radius: 10px;
 }
 
-
+.table_profiles{
+    width: 80%;
+    padding-left: 10%;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
 
 table {
   font-family: arial, sans-serif;
@@ -138,12 +143,11 @@ table {
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
+  color: white;
   padding: 8px;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
+
 
 
 
