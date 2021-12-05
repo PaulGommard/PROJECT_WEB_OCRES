@@ -38,12 +38,12 @@ class Widgets extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: [],
+            profile: [],
             dog: [],
             joke: [],
             weather: [],
             coronavirus: [],
-            graphique: [],
+            all_profiles: [],
             isLoaded: false,
         }
     }
@@ -57,30 +57,29 @@ class Widgets extends React.Component {
         ))
             .then(data => {
                 // assign to requested URL as define in array with array index.
-                const data_user = data[0];
+                const data_profile = data[0];
                 const data_dog = data[1];
                 const data_joke = data[2];
                 const data_weather = data[3];
                 const data_coronavirus = data[4];
-                const data_graphique = data[5];
+                const data_all_profiles = data[5];
                 this.setState({
                             isLoaded: true,
-                            users: data_user,
+                            profile: data_profile,
                             dog: data_dog,
                             joke: data_joke,  
                             weather: data_weather, 
                             coronavirus: data_coronavirus,
-                            graphique: data_graphique
+                            all_profiles: data_all_profiles
                         })
-                        console.log(this.state);
-                        console.log(this.state.users.results[0].location.city);
+                        // console.log(this.state);
             
                         const profile = {
-                        firstName: this.state.users.results[0].name.first,
-                        lastName: this.state.users.results[0].name.last,
-                        age: this.state.users.results[0].registered.age,
-                        country: this.state.users.results[0].location.country,
-                        city: this.state.users.results[0].location.city
+                        firstName: this.state.profile.results[0].name.first,
+                        lastName: this.state.profile.results[0].name.last,
+                        age: this.state.profile.results[0].registered.age,
+                        country: this.state.profile.results[0].location.country,
+                        city: this.state.profile.results[0].location.city
             };
 
             apiProfile
@@ -94,14 +93,13 @@ class Widgets extends React.Component {
                     } else {
                         alert("Can't add new data on database");
                     }
-                })
+                })         
             })
-    
     }
 
     render() {
 
-        var { isLoaded, users, dog, joke, weather, coronavirus, graphique } = this.state;
+        var { isLoaded, profile, dog, joke, weather, coronavirus, all_profiles } = this.state;
 
         if (!isLoaded) {
             return <div>Loading...</div>
@@ -113,7 +111,7 @@ class Widgets extends React.Component {
                     <div class="container_fluid">
                         <div class="row">
                             <div class="col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3">
-                                {users.results.map(item => (
+                                {profile.results.map(item => (
                                     <Profile
                                         key={item.id}
                                         item={item}
@@ -123,7 +121,7 @@ class Widgets extends React.Component {
             
                             <div class="col-12 col-sm-12 col-md-8 col-lg-7 col-xl-7">
                                 <Graphique
-                                    item={weather}
+                                    item={all_profiles}
                                 />
                             </div>
             

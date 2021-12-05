@@ -67,9 +67,9 @@ async function deleteByLastName(req, res) {
 }
 
 function updateProfile(req, res) {
-    const nameParam = req.params.name;
+    const id = req.params.id;
 
-    return Profile.updateOne({ lastName: nameParam }, req.body)
+    return Profile.updateOne({ _id: id }, req.body)
         .then((result) => {
             if (result) {
                 res.json({ message: `${result.modifiedCount} updated` })

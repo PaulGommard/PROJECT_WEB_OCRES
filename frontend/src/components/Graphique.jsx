@@ -2,52 +2,91 @@ import React from "react";
 import '../index.css';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data = [
+function GetGraphiqueData(all_profiles)
+{
+  var data = [
     {
-      name: '< 10 ans',
-      uv: 4000,
-      Age: 2400,
-      amt: 2400,
-    },
-    {
-      name: '10 - 20 ans',
-      uv: 3000,
-      Age: 1398,
-      amt: 2210,
-    },
-    {
-      name: '20 - 30 ans',
-      uv: 2000,
-      Age: 9800,
-      amt: 2290,
-    },
-    {
-      name: '30 - 40 ans',
-      uv: 2780,
-      Age: 3908,
-      amt: 2000,
-    },
-    {
-      name: '40 - 50 ans',
-      uv: 1890,
-      Age: 4800,
-      amt: 2181,
-    },
-    {
-      name: '50 - 60 ans',
-      uv: 2390,
-      Age: 3800,
-      amt: 2500,
-    },
-    {
-      name: '< 60 ans',
-      uv: 3490,
-      Age: 4300,
-      amt: 2100,
-    },
-  ];
+        name: '< 10 ans',
+        uv: 4000,
+        Age: 0,
+        amt: 2400,
+      },
+      {
+        name: '10 - 20 ans',
+        uv: 3000,
+        Age: 0,
+        amt: 2210,
+      },
+      {
+        name: '20 - 30 ans',
+        uv: 2000,
+        Age: 0,
+        amt: 2290,
+      },
+      {
+        name: '30 - 40 ans',
+        uv: 2780,
+        Age: 0,
+        amt: 2000,
+      },
+      {
+        name: '40 - 50 ans',
+        uv: 1890,
+        Age: 0,
+        amt: 2181,
+      },
+      {
+        name: '50 - 60 ans',
+        uv: 2390,
+        Age: 0,
+        amt: 2500,
+      },
+      {
+        name: '< 60 ans',
+        uv: 3490,
+        Age: 0,
+        amt: 2100,
+      },
+  ]
+  console.log(all_profiles.item[0].age);
+  for(const profile of all_profiles.item)
+  {
+      if(parseInt(profile.age) <= 10 )
+      {
+          data[0].Age += 1;
+      }
+      else if(parseInt(profile.age) > 10 && parseInt(profile.age) <= 20)
+      {
+          data[1].Age += 1;
+      }
+      else if(parseInt(profile.age) > 20 && parseInt(profile.age) <= 30)
+      {
+          data[2].Age += 1;
+      }
+      else if(parseInt(profile.age) > 30 && parseInt(profile.age) <= 40)
+      {
+          data[3].Age += 1;
+      }
+      else if(parseInt(profile.age) > 40 && parseInt(profile.age) <= 50)
+      {
+          data[4].Age += 1;
+      }
+      else if(parseInt(profile.age) > 50 && parseInt(profile.age) <= 60)
+      {
+          data[4].Age += 1;
+      }
+      else if(parseInt(profile.age) > 60)
+      {
+          data[5].Age += 1;
+      }
+  }
 
-const Graphique = ({item}) => (
+  return data;
+}
+
+    
+
+const Graphique = (items) => (
     <div class="graph">
         <div class="title">
             <h2>Nombre de Profile en fonction de l'Age</h2>
@@ -57,7 +96,7 @@ const Graphique = ({item}) => (
         <BarChart
           width={500}
           height={300}
-          data={data}
+          data={GetGraphiqueData(items)}
           margin={{
             top: 5,
             right: 30,

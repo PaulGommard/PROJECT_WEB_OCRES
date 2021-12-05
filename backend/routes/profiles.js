@@ -15,7 +15,7 @@ router.post('/', Profile.saveOne);
 router.delete('/:name', Profile.deleteByLastName);
 
 // Update one
-router.put('/:name', Profile.updateProfile);
+router.put('/:id', Profile.updateProfile);
 
 
 module.exports = router;

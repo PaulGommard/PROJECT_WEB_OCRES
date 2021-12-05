@@ -1,9 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import '../index.css';
-import ApiProfile from "./ApiProfile";
 
-import Admin from "../components/Admin";
+import ApiProfile from "./ApiProfile";
 
 const apiProfile = new ApiProfile();
     
@@ -16,6 +15,7 @@ class Dashboard extends React.Component {
             firstName: "", lastName: "", age: "", country: "", city: "",
             updateFirstName: "", updateLastName: "", updateAge: "", updateCountry: "", updateCity: "", updateId: "",
             successValue: "",
+            successUpdate: "",
             isLoaded: false,
         };
 
@@ -40,7 +40,7 @@ class Dashboard extends React.Component {
     DeleteProfile()
     {
         var name = this.state.deleteValue;
-        if(window.confirm('Do you really want to delete ${name} ?')) {
+        if(window.confirm(`Do you really want to delete ${name}`)) {
             apiProfile.deleteProfile(name);
             window.location.reload(false);
         }
@@ -161,26 +161,26 @@ class Dashboard extends React.Component {
                 <div class="dashboard">
                     <div className="container-fluid">
                         <div className='table_profiles'>
-                        <table>
-                            <tr>
-                                <th>FirstName</th>
-                                <th>LastName</th>
-                                <th>Age</th>
-                                <th>Country</th>
-                                <th>City</th>
-                                <th>Button</th>
-                            </tr>
-                                {profiles.data.map(item => (
-                                    <tr>
-                                    <td>{item.firstName}</td>
-                                    <td>{item.lastName}</td>
-                                    <td>{item.age}</td>
-                                    <td>{item.country}</td>
-                                    <td>{item.city}</td>
-                                    <td><button type="button" className="col-auto" onClick={() => this.AddProfileOnUpdate(item)}>Update</button></td>
+                            <table>
+                                <tr>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Age</th>
+                                    <th>Country</th>
+                                    <th>City</th>
+                                    <th>Button</th>
                                 </tr>
-                                ))}
-                        </table>
+                                    {profiles.data.map(item => (
+                                        <tr>
+                                        <td>{item.firstName}</td>
+                                        <td>{item.lastName}</td>
+                                        <td>{item.age}</td>
+                                        <td>{item.country}</td>
+                                        <td>{item.city}</td>
+                                        <td><button type="button" className="col-auto" onClick={() => this.AddProfileOnUpdate(item)}>Update</button></td>
+                                    </tr>
+                                    ))}
+                            </table>
                         </div>
                         
                         <div className="row input-section">
@@ -205,7 +205,7 @@ class Dashboard extends React.Component {
                             <input type="text" className="col-2" value={this.state.updateCity} placeholder="updateCity" required onChange={(e) => this.handleChange("updateCity", e)} />
                             <button type="button" className="col-auto" onClick={() => this.UpdateProfile()}>Update</button>
                         </div>
-                        <div className="row justify-content-end success">{this.state.successValue}</div>
+                        <div className="row justify-content-end success">{this.state.successUpdate}</div>
 
                     </div>
                      
