@@ -1,5 +1,6 @@
 const Profile = require('../models/profile.model.js').Profile;
 
+// Function to get all profile in database
 function findAll(req, res) {
     return Profile.find()
         .exec()
@@ -15,6 +16,7 @@ function findAll(req, res) {
         })
 }
 
+// Function to get one by name
 function findByLastName(req, res) {
     const lastNameParam = req.params.name;
     return Profile.find({lastName: lastNameParam})
@@ -31,6 +33,7 @@ function findByLastName(req, res) {
         })
 }
 
+// Function add one Profile to database
 function saveOne(req, res) {
     const newProfile = new Profile(req.body);
 
@@ -50,6 +53,7 @@ function saveOne(req, res) {
         })
 }
 
+// Delete one Profile of Database
 async function deleteByLastName(req, res) {
     console.log("test");
     const nameParam = req.params.name;
@@ -66,6 +70,7 @@ async function deleteByLastName(req, res) {
     }
 }
 
+// Function update One Profile of database
 function updateProfile(req, res) {
     const id = req.params.id;
 

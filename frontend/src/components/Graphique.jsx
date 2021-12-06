@@ -4,6 +4,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsive
 
 function GetGraphiqueData(all_profiles)
 {
+  // Initialized empty data for our Graphique
   var data = [
     {
         name: '< 10 ans',
@@ -48,7 +49,8 @@ function GetGraphiqueData(all_profiles)
         amt: 2100,
       },
   ]
-  console.log(all_profiles.item[0].age);
+  
+  // Get the age information and put in data 
   for(const profile of all_profiles.item)
   {
       if(parseInt(profile.age) <= 10 )
@@ -91,7 +93,7 @@ const Graphique = (items) => (
         <div class="title">
             <h2>Nombre de Profile en fonction de l'Age</h2>
         </div>  
-
+        {/* Use Rechart to display graphique */}
         <ResponsiveContainer width="100%" height="90%">
         <BarChart
           width={500}

@@ -12,6 +12,7 @@ router.get('/:name', Profile.findByLastName);
 // Post one
 router.post('/', Profile.saveOne);
 
+// Delete one
 router.delete('/:name', Profile.deleteByLastName);
 
 // Update one

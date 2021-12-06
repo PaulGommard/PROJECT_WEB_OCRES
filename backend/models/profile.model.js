@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Our Table of Database Detail
 const profileSchema = new mongoose.Schema({
     firstName: {
         type: String,

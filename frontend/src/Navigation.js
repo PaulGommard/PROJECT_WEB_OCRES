@@ -10,7 +10,7 @@ function Navigation() {
                 Widgets
             </a>
             <a className="bn60" href="/dashboard">
-                Dashboard
+                Admin
             </a>
         </header>
     )

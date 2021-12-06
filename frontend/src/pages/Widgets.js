@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import '../index.css';
 
+// All Component use for our Widgets
 import Profile from "../components/Profile";
 import Dog from "../components/Dog";
 import Joke from "../components/Joke";
@@ -13,6 +14,7 @@ import ApiProfile from "./ApiProfile";
 
 const apiProfile = new ApiProfile();
 
+// All urls link for the widget page
 var urls = [
     'https://randomuser.me/api/',
     'https://dog.ceo/api/breeds/image/random',
@@ -22,6 +24,7 @@ var urls = [
     'http://localhost:3000/profiles'
 ]
 
+// Function to check the status of the API
 function checkStatus(response) {
     if (response.ok) {
         return Promise.resolve(response);
@@ -48,7 +51,9 @@ class Widgets extends React.Component {
         }
     }
 
+    // On start web page do this...
     componentDidMount() {
+        // For all API
         Promise.all(urls.map(url =>
             fetch(url)
                 .then(checkStatus)  // check the response of our APIs
@@ -73,7 +78,7 @@ class Widgets extends React.Component {
                             all_profiles: data_all_profiles
                         })
                         // console.log(this.state);
-            
+                        // Create const Profile to inject in our own Database
                         const profile = {
                         firstName: this.state.profile.results[0].name.first,
                         lastName: this.state.profile.results[0].name.last,
@@ -81,7 +86,7 @@ class Widgets extends React.Component {
                         country: this.state.profile.results[0].location.country,
                         city: this.state.profile.results[0].location.city
             };
-
+            // Inject the new profile load on our Database
             apiProfile
                 .createProfile(profile)
                 .then(res => {
@@ -101,10 +106,11 @@ class Widgets extends React.Component {
 
         var { isLoaded, profile, dog, joke, weather, coronavirus, all_profiles } = this.state;
 
+        // If don't get already our data of API...
         if (!isLoaded) {
             return <div>Loading...</div>
         }
-
+        // Render all the html for all our Widgets
         else {
             return (   
                 <div class="widgets">
